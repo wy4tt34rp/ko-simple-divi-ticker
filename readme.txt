@@ -1,4 +1,4 @@
-=== KO Simple Divi Ticker ===
+=== vela: Simple Divi Ticker ===
 Stable tag: 1.7.0
 
 = 1.7.0 =

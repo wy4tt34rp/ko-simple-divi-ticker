@@ -1,4 +1,4 @@
-# KO Simple Divi Ticker
+# vela: Simple Divi Ticker
 
 ## Overview
 Adds a lightweight ticker-style content presentation for Divi sites.

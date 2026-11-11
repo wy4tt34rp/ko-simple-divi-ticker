@@ -1,8 +1,9 @@
 <?php
 /**
- * Plugin Name: KO Simple Divi Ticker
+ * Plugin Name: vela: Simple Divi Ticker
  * Description: Adds a simple scrolling ticker effect to any Divi module with a specific CSS class...just add the "ko-divi-ticker" class to the text/heading module, and optionally add "ko-divi-ticker-group" to a row/section to merge multiple modules into a single ticker stream.
- * Author: KO
+ * Author: Kevin ONeill
+ * Author URI: mailto:ko@velaagency.com?subject=vela%3A%20Simple%20Divi%20Ticker
  * Version: 1.7.0
  * License: GPL2+
  */
@@ -422,7 +423,7 @@ function ko_simple_divi_ticker_settings_page() {
 
     ?>
     <div class="wrap">
-        <h1>KO Simple Divi Ticker</h1>
+        <h1>vela: Simple Divi Ticker</h1>
         <p>
             This plugin adds a scrolling ticker to any Divi Text, Heading, or Icon module with the
             <code>ko-divi-ticker</code> CSS class. You can also add
@@ -492,3 +493,26 @@ function ko_simple_divi_ticker_settings_page() {
     </div>
     <?php
 }
+
+/**
+ * Add the plugin readme and Vela links to this plugin's row metadata.
+ *
+ * @param string[] $plugin_meta Existing plugin metadata.
+ * @param string   $plugin_file Plugin path relative to the plugins directory.
+ * @return string[]
+ */
+add_filter(
+    'plugin_row_meta',
+    static function ( $plugin_meta, $plugin_file ) {
+        if ( plugin_basename( __FILE__ ) !== $plugin_file ) {
+            return $plugin_meta;
+        }
+
+        $plugin_meta[] = '<a href="' . esc_url( plugins_url( 'plugin-details.md', __FILE__ ) ) . '" target="_blank" rel="noopener noreferrer">View Details</a>';
+        $plugin_meta[] = '<a href="' . esc_url( 'https://velaagency.com' ) . '" target="_blank" rel="noopener noreferrer">Vela</a>';
+
+        return $plugin_meta;
+    },
+    10,
+    2
+);
